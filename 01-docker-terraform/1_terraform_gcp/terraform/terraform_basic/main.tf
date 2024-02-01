@@ -10,15 +10,15 @@ terraform {
 provider "google" {
 # Credentials only needs to be set if you do not have the GOOGLE_APPLICATION_CREDENTIALS set
 #  credentials = 
-  project = "<Your Project ID>"
-  region  = "us-central1"
+  project = "divij-zoomcamp-2024"
+  region  = "asia-south1-c"
 }
 
 
 
 resource "google_storage_bucket" "data-lake-bucket" {
-  name          = "<Your Unique Bucket Name>"
-  location      = "US"
+  name          = "divij-zoomcamp-2024-terra-bucket"
+  location      = "ASIA-SOUTH1"
 
   # Optional, but recommended settings:
   storage_class = "STANDARD"
@@ -41,8 +41,8 @@ resource "google_storage_bucket" "data-lake-bucket" {
 }
 
 
-resource "google_bigquery_dataset" "dataset" {
-  dataset_id = "<The Dataset Name You Want to Use>"
-  project    = "<Your Project ID>"
-  location   = "US"
+resource "google_bigquery_dataset" "bigq_dataset" {
+  dataset_id = "demo_dataset"
+  project    = "divij-zoomcamp-2024"
+  location   = "ASIA-SOUTH1"
 }

@@ -8,19 +8,17 @@ variable "credentials" {
 
 variable "project" {
   description = "Project"
-  default     = "<Your Project ID>"
+  default     = "divij-zoomcamp-2024"
 }
 
 variable "region" {
   description = "Region"
-  #Update the below to your desired region
-  default     = "us-central1"
+  default     = "asia-south1-c"
 }
 
 variable "location" {
   description = "Project Location"
-  #Update the below to your desired location
-  default     = "US"
+  default     = "ASIA-SOUTH1"
 }
 
 variable "bq_dataset_name" {
@@ -32,7 +30,7 @@ variable "bq_dataset_name" {
 variable "gcs_bucket_name" {
   description = "My Storage Bucket Name"
   #Update the below to a unique bucket name
-  default     = "terraform-demo-terra-bucket"
+  default     = "divij-zoomcamp-2024-terra-bucket"
 }
 
 variable "gcs_storage_class" {
