@@ -7,7 +7,7 @@ variable "credentials" {
 
 
 variable "project" {
-  description = "Project"
+  description = "Project ID"
   default     = "divij-zoomcamp-2024"
 }
 
@@ -22,15 +22,15 @@ variable "location" {
 }
 
 variable "bq_dataset_name" {
-  description = "My BigQuery Dataset Name"
+  description = "BigQuery Dataset - Zoomcamp Practice"
   #Update the below to what you want your dataset to be called
-  default     = "demo_dataset"
+  default     = "nyc_taxi_dataset"
 }
 
 variable "gcs_bucket_name" {
-  description = "My Storage Bucket Name"
+  description = "GCS Bucket - Zoomcamp Practice"
   #Update the below to a unique bucket name
-  default     = "divij-zoomcamp-2024-terra-bucket"
+  default     = "divij-zoomcamp-2024-gcs-bucket"
 }
 
 variable "gcs_storage_class" {
