@@ -27,11 +27,8 @@ def download_files_from_url():
         urlretrieve(dataset_url, fullfilename)
 
 def upload_to_gcs(bucket, local_file_path):
-    # WORKAROUND to prevent timeout for files > 6 MB on 800 kbps upload speed.
-    # (Ref: https://github.com/googleapis/python-storage/issues/74)
     storage.blob._MAX_MULTIPART_SIZE = 5 * 1024 * 1024  # 5 MB
     storage.blob._DEFAULT_CHUNKSIZE = 5 * 1024 * 1024  # 5 MB
-    # End of Workaround
 
     client = storage.Client()
     bucket = client.bucket(bucket)
