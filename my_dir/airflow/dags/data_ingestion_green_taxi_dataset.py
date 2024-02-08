@@ -1,7 +1,7 @@
 import os
 import logging
 
-from urllib import urlretrieve
+import urllib.request
 
 from airflow import DAG
 from airflow.utils.dates import days_ago
@@ -26,7 +26,7 @@ def download_files_from_url():
         dataset_url = f"https://d37ci6vzurychx.cloudfront.net/trip-data/{filename}"
 
         fullfilename = os.path.join(path_to_local_home, filename)
-        urllib.urlretrieve(dataset_url, fullfilename)
+        urllib.request.urlretrieve(dataset_url, fullfilename)
 
 def upload_to_gcs(bucket, local_file_path):
     storage.blob._MAX_MULTIPART_SIZE = 5 * 1024 * 1024  # 5 MB
