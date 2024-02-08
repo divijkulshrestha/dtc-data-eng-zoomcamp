@@ -1,6 +1,8 @@
 import os
 import logging
 
+from urllib import urlretrieve
+
 from airflow import DAG
 from airflow.utils.dates import days_ago
 from airflow.operators.python import PythonOperator
@@ -24,7 +26,7 @@ def download_files_from_url():
         dataset_url = f"https://d37ci6vzurychx.cloudfront.net/trip-data/{filename}"
 
         fullfilename = os.path.join(path_to_local_home, filename)
-        urlretrieve(dataset_url, fullfilename)
+        urllib.urlretrieve(dataset_url, fullfilename)
 
 def upload_to_gcs(bucket, local_file_path):
     storage.blob._MAX_MULTIPART_SIZE = 5 * 1024 * 1024  # 5 MB
@@ -48,7 +50,7 @@ default_args = {
 }
 
 with DAG(
-    dag_id="data_ingestion_gcs_dag",
+    dag_id="data_ingestion_green_taxi_dag",
     schedule_interval="@daily",
     default_args=default_args,
     catchup=False,
