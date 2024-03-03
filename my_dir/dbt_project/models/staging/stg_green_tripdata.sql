@@ -1,3 +1,4 @@
+--dbt build --select stg_green_tripdata --vars '{'is_test_run': 'true'}'
 {{
     config(
         materialized='view'
@@ -43,8 +44,6 @@ select
 from tripdata
 where rn = 1
 
-
--- dbt build --select <model_name> --vars '{'is_test_run': 'false'}'
 {% if var('is_test_run', default=true) %}
 
   limit 100
